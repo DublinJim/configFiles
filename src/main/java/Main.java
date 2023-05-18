@@ -1,14 +1,24 @@
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
-        System.out.println( "Config demo");
+    public static void main(String[] args) throws IOException {
+        System.out.println("Config demo");
 
         ConfigMaker configMaker = new ConfigMaker();
+
+
         try {
-            configMaker.setProp("hello","12");
+            configMaker.setProp("lvl", "12");
+            configMaker.setProp("pwr", "10");
+            configMaker.setProp("health", "50");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        configMaker.readProp("lvl");
+
+
     }
+
+
 }
