@@ -4,6 +4,7 @@ public class SaveAndLoad {
     Warrior warrior;
     ConfigMaker configMaker;
 
+
     public SaveAndLoad(Warrior warrior, ConfigMaker configMaker) {
         this.warrior = warrior;
         this.configMaker = configMaker;
@@ -40,5 +41,36 @@ public class SaveAndLoad {
         configMaker.setProp("torso", String.valueOf(warrior.torso));
         configMaker.setProp("left_leg", String.valueOf(warrior.lLeg));
     }
+
+
+    public void readProp() throws IOException {
+        System.out.println("After Reading ini file ..\n");
+        String warriorName = configMaker.readProp("name");
+        System.out.println("Name : " + warriorName);
+        System.out.println("---------------------------------------");
+        int strength = Integer.parseInt(configMaker.readProp("strength"));
+        System.out.println("Strength : " + strength);
+
+        int dexterity = Integer.parseInt(configMaker.readProp("dexterity"));
+        System.out.println("dexterity : " + dexterity);
+
+        int awareness = Integer.parseInt(configMaker.readProp("awareness"));
+        System.out.println("awareness : " + awareness);
+
+        System.out.println("__________________BODY_____________________");
+        int head = Integer.parseInt(configMaker.readProp("head"));
+        System.out.println("Head damage      : " + head);
+
+        int leftArm = Integer.parseInt(configMaker.readProp("left_arm"));
+        System.out.println("Left arm damage  : " + leftArm);
+
+        int rightArm = Integer.parseInt(configMaker.readProp("right_arm"));
+        System.out.println("Right arm damage : " + rightArm);
+
+        int torso = Integer.parseInt(configMaker.readProp("torso"));
+        System.out.println("Torso damage     : "+torso);
+
+    }
+
 
 }

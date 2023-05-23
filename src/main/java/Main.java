@@ -9,7 +9,8 @@ public class Main {
         SaveAndLoad saveAndLoad = new SaveAndLoad(warrior, configMaker);
 
         saveAndLoad.stats();
-
+        saveAndLoad.setProp();
+        saveAndLoad.readProp();
     }
 
 
