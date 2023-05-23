@@ -1,6 +1,12 @@
 import java.util.Random;
 
 public class Player extends Body {
+public enum typeClass{
+    WARRIOR,
+    CLERIC,
+    MAGE,
+    THIEF
+}
 
 
     public int strength = 10;
@@ -8,10 +14,12 @@ public class Player extends Body {
     public int dexterity = 5;
 
 public String name;
-    public Player(String name) {
+    public Player(String name,typeClass player) {
         this.name = name;
-        System.out.println("Player Created");
+        typeClass typeClass = player;
+        System.out.println("Player Created "+typeClass);
         randomFactors();
+
     }
 
     public void randomFactors() {

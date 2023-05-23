@@ -40,6 +40,7 @@ public class SaveAndLoad {
         configMaker.setProp("head", String.valueOf(warrior.head));
         configMaker.setProp("torso", String.valueOf(warrior.torso));
         configMaker.setProp("left_leg", String.valueOf(warrior.lLeg));
+        configMaker.setProp("right_leg", String.valueOf(warrior.rLeg));
     }
 
 
@@ -52,10 +53,10 @@ public class SaveAndLoad {
         System.out.println("Strength : " + strength);
 
         int dexterity = Integer.parseInt(configMaker.readProp("dexterity"));
-        System.out.println("dexterity : " + dexterity);
+        System.out.println("Dexterity : " + dexterity);
 
         int awareness = Integer.parseInt(configMaker.readProp("awareness"));
-        System.out.println("awareness : " + awareness);
+        System.out.println("Awareness : " + awareness);
 
         System.out.println("__________________BODY_____________________");
         int head = Integer.parseInt(configMaker.readProp("head"));
