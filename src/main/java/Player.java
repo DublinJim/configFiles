@@ -1,14 +1,16 @@
 import java.util.Random;
 
-public class Warrior extends Body {
+public class Player extends Body {
+
+
     public int strength = 10;
-    public int awarness = 5;
-    public int dexterty = 5;
+    public int awareness = 5;
+    public int dexterity = 5;
 
 public String name;
-    public Warrior(String name) {
+    public Player(String name) {
         this.name = name;
-        System.out.println("Warrior Created");
+        System.out.println("Player Created");
         randomFactors();
     }
 
@@ -17,9 +19,9 @@ public String name;
         int muscle = rand.nextInt(9)+1;
         strength += muscle;
         int sharp = rand.nextInt(5);
-        awarness += sharp;
+        awareness += sharp;
         int quick=rand.nextInt(6);
-        dexterty += quick;
+        dexterity += quick;
         System.out.println("New settings after random applied \n"+"Muscle "+muscle+" sharp "+sharp+" dexterity "+quick);
     }
 
@@ -31,20 +33,20 @@ public String name;
         this.strength = strength;
     }
 
-    public int getAwarness() {
-        return awarness;
+    public int getAwareness() {
+        return awareness;
     }
 
-    public void setAwarness(int awarness) {
-        this.awarness = awarness;
+    public void setAwareness(int awareness) {
+        this.awareness = awareness;
     }
 
-    public int getDexterty() {
-        return dexterty;
+    public int getDexterity() {
+        return dexterity;
     }
 
-    public void setDexterty(int dexterty) {
-        this.dexterty = dexterty;
+    public void setDexterity(int dexterity) {
+        this.dexterity = dexterity;
     }
 
     public String getName() {
@@ -59,8 +61,8 @@ public String name;
     public String toString() {
         return "Warrior{" +
                 "strength=" + strength +
-                ", awarness=" + awarness +
-                ", dexterty=" + dexterty +
+                ", awarness=" + awareness +
+                ", dexterty=" + dexterity +
                 ", name='" + name + '\'' +
                 ", torso=" + torso +
                 ", rArm=" + rArm +
