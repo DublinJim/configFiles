@@ -13,10 +13,9 @@ public class ConfigMaker {
 
     }
 
-    public void readProp(String title) throws IOException {
+    public String readProp(String title) throws IOException {
         properties.load(new FileInputStream("config.ini"));
-        String result = properties.getProperty(title);
-        System.out.println(result);
 
-            }
+        return properties.getProperty(title);
+    }
 }

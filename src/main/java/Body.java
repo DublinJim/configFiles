@@ -3,6 +3,7 @@ public class Body {
     public int rArm;
     public int lArm;
     public int lLeg;
+    public int rLeg;
     public int head;
 
     public Body() {
@@ -40,6 +41,14 @@ public class Body {
         this.lLeg = lLeg;
     }
 
+    public int getrLeg() {
+        return rLeg;
+    }
+
+    public void setrLeg(int rLeg) {
+        this.rLeg = rLeg;
+    }
+
     public int getHead() {
         return head;
     }
@@ -55,6 +64,7 @@ public class Body {
                 ", rArm=" + rArm +
                 ", lArm=" + lArm +
                 ", lLeg=" + lLeg +
+                ", rLeg=" + rLeg +
                 ", head=" + head +
                 '}';
     }
