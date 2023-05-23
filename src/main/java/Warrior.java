@@ -15,12 +15,44 @@ public String name;
     public void randomFactors() {
         Random rand = new Random();
         int muscle = rand.nextInt(9)+1;
-        strength = strength + muscle;
+        strength += muscle;
         int sharp = rand.nextInt(5);
-        awarness=awarness+sharp;
+        awarness += sharp;
         int quick=rand.nextInt(6);
-        dexterty=dexterty+quick;
+        dexterty += quick;
         System.out.println("New settings after random applied \n"+"Muscle "+muscle+" sharp "+sharp+" dexterity "+quick);
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
+    public int getAwarness() {
+        return awarness;
+    }
+
+    public void setAwarness(int awarness) {
+        this.awarness = awarness;
+    }
+
+    public int getDexterty() {
+        return dexterty;
+    }
+
+    public void setDexterty(int dexterty) {
+        this.dexterty = dexterty;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
