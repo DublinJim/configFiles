@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.Scanner;
 
 public class SaveAndLoad {
     Player warrior;
@@ -73,5 +74,24 @@ public class SaveAndLoad {
 
     }
 
+    public void askForContinue(SaveAndLoad saveAndLoad) throws IOException {
+        System.out.println("Do you wish to continue a game  y/n ?");
+        Scanner scanner = new Scanner(System.in);
 
-}
+
+        while (true) {
+            if (scanner.hasNextLine()) {
+                String response = scanner.nextLine();
+                if ("y".equals(response)) {
+                    System.out.println("yes");
+                    saveAndLoad.readProp();
+                    break;
+                } else System.out.println("New game");
+            }
+        }
+
+    }
+
+
+
+} //end of class
