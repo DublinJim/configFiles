@@ -13,10 +13,10 @@ public class SaveAndLoad {
 
 
     public void stats() throws IOException {
-        String warriorName;
-        warriorName = configMaker.readProp("name");
+        String playerName;
+        playerName = configMaker.readProp("name");
         System.out.println("[[[[[[[ STATS ]]]]]]]]]]");
-        System.out.println("| Name returned " + warriorName);
+        System.out.println("| Name returned " + playerName);
         System.out.println("| strength  " + warrior.strength + "|");
         System.out.println("| dexterity " + warrior.dexterity + " |");
         System.out.println("| awareness " + warrior.awareness + " |");
@@ -98,7 +98,7 @@ public class SaveAndLoad {
 
                 Player player = new Player();
                 player.setName(name);
-
+                System.out.println(player.toString());
 
             }
 

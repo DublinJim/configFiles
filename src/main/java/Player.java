@@ -118,7 +118,7 @@ public class Player extends Body {
 
     @Override
     public String toString() {
-        return "Warrior{" +
+        return "Player{" +
                 "strength=" + strength +
                 ", awareness=" + awareness +
                 ", dexterity=" + dexterity +
@@ -128,7 +128,7 @@ public class Player extends Body {
                 ", lArm=" + lArm +
                 ", lLeg=" + lLeg +
                 ", head=" + head +
-                "} " + super.toString();
+                "} ";
     }
 
     public enum typeClass {
