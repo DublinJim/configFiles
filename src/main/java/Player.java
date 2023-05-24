@@ -113,21 +113,22 @@ public class Player extends Body {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name.toUpperCase();
+
     }
 
     @Override
     public String toString() {
-        return "------------------\n"+
-                "\nPROFILE\n" +
-                "------------------\n"
-                + "Name= " + name + '\n' +
+        return  "---------------------------"+
+                "\n        PROFILE\n" +
+                "---------------------------\n" +
+                "Name= " + name.toUpperCase() + '\n' +
                 "Strength= " + strength + "\n" +
                 "Awareness= " + awareness + "\n" +
                 "Dexterity= " + dexterity + "\n" +
                 "_____________BODY__________" + "\n" +
                 "Torso= " + torso + "\n" +
-                "Right arm= " + rArm + "\n" +
+                "Right Arm= " + rArm + "\n" +
                 "Left Arm= " + lArm + "\n" +
                 "Left Leg= " + lLeg + "\n" +
                 "Head= " + head + "\n" +
