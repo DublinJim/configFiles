@@ -6,7 +6,7 @@ public class SaveAndLoad {
     ConfigMaker configMaker;
 
 
-    public SaveAndLoad( ConfigMaker configMaker) {
+    public SaveAndLoad(ConfigMaker configMaker) {
 
         this.configMaker = configMaker;
     }
@@ -87,18 +87,23 @@ public class SaveAndLoad {
                     System.out.println("Loading game ... ... ... ");
                     saveAndLoad.readProp();
                     break;
+
                 } else {
+
                     System.out.println("New game");
                     System.out.println("Enter Player Name...");
 
-                    String name=scanner.nextLine();
+                    String name = scanner.nextLine();
+                    System.out.println("Player named " + name);
 
-                    System.out.println("Player named "+name);
+                    Player player = new Player();
+                    player.setName(name);
 
 
 
-                    break;
+
                 }
+                 scanner.close();
             }
         }
 
