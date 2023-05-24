@@ -6,8 +6,8 @@ public class SaveAndLoad {
     ConfigMaker configMaker;
 
 
-    public SaveAndLoad(Player warrior, ConfigMaker configMaker) {
-        this.warrior = warrior;
+    public SaveAndLoad( ConfigMaker configMaker) {
+
         this.configMaker = configMaker;
     }
 
@@ -47,8 +47,8 @@ public class SaveAndLoad {
 
     public void readProp() throws IOException {
         System.out.println("After Reading config.ini file ..\n");
-        String warriorName = configMaker.readProp("name");
-        System.out.println("Name : " + warriorName);
+        String playerName = configMaker.readProp("name");
+        System.out.println("Name : " + playerName);
         System.out.println("---------------------------------------");
         int strength = Integer.parseInt(configMaker.readProp("strength"));
         System.out.println("Strength : " + strength);
@@ -84,14 +84,25 @@ public class SaveAndLoad {
                 String response = scanner.nextLine();
                 if ("y".equals(response)) {
                     System.out.println("yes");
+                    System.out.println("Loading game ... ... ... ");
                     saveAndLoad.readProp();
                     break;
-                } else System.out.println("New game");
+                } else {
+                    System.out.println("New game");
+                    System.out.println("Enter Player Name...");
+
+                    String name=scanner.nextLine();
+
+                    System.out.println("Player named "+name);
+
+
+
+                    break;
+                }
             }
         }
 
     }
-
 
 
 } //end of class
