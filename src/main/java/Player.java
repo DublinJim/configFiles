@@ -118,17 +118,20 @@ public class Player extends Body {
 
     @Override
     public String toString() {
-        return "Player{" +
-                "strength=" + strength +
-                ", awareness=" + awareness +
-                ", dexterity=" + dexterity +
-                ", name='" + name + '\'' +
-                ", torso=" + torso +
-                ", rArm=" + rArm +
-                ", lArm=" + lArm +
-                ", lLeg=" + lLeg +
-                ", head=" + head +
-                "} ";
+        return "------------------\n"+
+                "\nPROFILE\n" +
+                "------------------\n"
+                + "Name= " + name + '\n' +
+                "Strength= " + strength + "\n" +
+                "Awareness= " + awareness + "\n" +
+                "Dexterity= " + dexterity + "\n" +
+                "_____________BODY__________" + "\n" +
+                "Torso= " + torso + "\n" +
+                "Right arm= " + rArm + "\n" +
+                "Left Arm= " + lArm + "\n" +
+                "Left Leg= " + lLeg + "\n" +
+                "Head= " + head + "\n" +
+                "____________________________";
     }
 
     public enum typeClass {
