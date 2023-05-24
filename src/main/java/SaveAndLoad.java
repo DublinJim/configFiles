@@ -79,33 +79,31 @@ public class SaveAndLoad {
         Scanner scanner = new Scanner(System.in);
 
 
-        while (true) {
-            if (scanner.hasNextLine()) {
-                String response = scanner.nextLine();
-                if ("y".equals(response)) {
-                    System.out.println("yes");
-                    System.out.println("Loading game ... ... ... ");
-                    saveAndLoad.readProp();
-                    break;
-
-                } else {
-
-                    System.out.println("New game");
-                    System.out.println("Enter Player Name...");
-
-                    String name = scanner.nextLine();
-                    System.out.println("Player named " + name);
-
-                    Player player = new Player();
-                    player.setName(name);
 
 
+            String response = scanner.nextLine();
+            if ("y".equals(response)) {
+                System.out.println("yes");
+                System.out.println("Loading game ... ... ... ");
+                saveAndLoad.readProp();
+             
+
+            } else {
+
+                System.out.println("New game");
+                System.out.println("Enter Player Name...");
+
+                String name = scanner.nextLine();
+                System.out.println("Player named " + name);
+
+                Player player = new Player();
+                player.setName(name);
 
 
-                }
-                 scanner.close();
             }
-        }
+
+
+
 
     }
 
