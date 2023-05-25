@@ -1,10 +1,11 @@
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class SaveAndLoad {
     public Player warrior;
     public ConfigMaker configMaker;
-
+    public boolean isValid;
     public String response;
 
     public SaveAndLoad(ConfigMaker configMaker) {
@@ -80,8 +81,14 @@ public class SaveAndLoad {
         Scanner scanner = new Scanner(System.in);
 
         response = scanner.nextLine().toUpperCase();
+        System.out.println(response);
+        if (!Objects.equals(response, "Y") || !response.equals("N")) {
+            System.out.println("Do you wish to continue a game  y/n ?");
+            response = scanner.nextLine().toUpperCase();
+            System.out.println(response);
+    }
 
-        while (response!="Y"|| response!="N") {
+
             switch (response) {
                 case "Y":
                     System.out.println(response);
@@ -96,8 +103,9 @@ public class SaveAndLoad {
                     System.out.println("Incorrect ...");
                     System.out.println("Do you wish to continue a game  y/n ?");
                     response = scanner.nextLine().toUpperCase();
+                    break;
             }
-        }
+
 
         System.out.println("New game");
         System.out.println("Enter Player Name...");
@@ -107,7 +115,7 @@ public class SaveAndLoad {
 
         Player player = new Player();
         player.setName(name);
-        System.out.println(player.toString());
+        System.out.println(player);
 
     }
 
