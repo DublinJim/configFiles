@@ -2,9 +2,10 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class SaveAndLoad {
-    Player warrior;
-    ConfigMaker configMaker;
+    public Player warrior;
+    public ConfigMaker configMaker;
 
+    public String response;
 
     public SaveAndLoad(ConfigMaker configMaker) {
 
@@ -78,32 +79,35 @@ public class SaveAndLoad {
         System.out.println("Do you wish to continue a game  y/n ?");
         Scanner scanner = new Scanner(System.in);
 
+        response = scanner.nextLine().toUpperCase();
 
-
-
-            String response = scanner.nextLine();
-            if ("y".equals(response)) {
-                System.out.println("yes");
-                System.out.println("Loading game ... ... ... ");
-                saveAndLoad.readProp();
-             
-
-            } else {
-
-                System.out.println("New game");
-                System.out.println("Enter Player Name...");
-
-                String name = scanner.nextLine();
-                System.out.println("Player named " + name);
-
-                Player player = new Player();
-                player.setName(name);
-                System.out.println(player.toString());
-
+        while (response!="Y"|| response!="N") {
+            switch (response) {
+                case "Y":
+                    System.out.println(response);
+                    System.out.println("Loading game ... ... ... ");
+                    saveAndLoad.readProp();
+                    break;
+                case "N":
+                    System.out.println(response);
+                    System.out.println("New Game generating.");
+                    break;
+                default:
+                    System.out.println("Incorrect ...");
+                    System.out.println("Do you wish to continue a game  y/n ?");
+                    response = scanner.nextLine().toUpperCase();
             }
+        }
 
+        System.out.println("New game");
+        System.out.println("Enter Player Name...");
 
+        String name = scanner.nextLine();
+        System.out.println("Player named " + name);
 
+        Player player = new Player();
+        player.setName(name);
+        System.out.println(player.toString());
 
     }
 
