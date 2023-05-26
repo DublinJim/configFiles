@@ -5,8 +5,9 @@ import java.util.Scanner;
 public class SaveAndLoad {
     public Player warrior;
     public ConfigMaker configMaker;
-    public boolean isValid;
+    public boolean isValid = false;
     public String response;
+    public Scanner scanner = new Scanner(System.in);
 
     public SaveAndLoad(ConfigMaker configMaker) {
 
@@ -77,34 +78,18 @@ public class SaveAndLoad {
     }
 
     public void askForContinue(SaveAndLoad saveAndLoad) throws IOException {
-        System.out.println("Do you wish to continue a game  y/n ?");
-        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Do you wish to continue a game  y/n ?");
         response = scanner.nextLine().toUpperCase();
         System.out.println(response);
-        if (!Objects.equals(response, "Y") || !response.equals("N")) {
-            System.out.println("Do you wish to continue a game  y/n ?");
-            response = scanner.nextLine().toUpperCase();
-            System.out.println(response);
-    }
 
 
-            switch (response) {
-                case "Y":
-                    System.out.println(response);
-                    System.out.println("Loading game ... ... ... ");
-                    saveAndLoad.readProp();
-                    break;
-                case "N":
-                    System.out.println(response);
-                    System.out.println("New Game generating.");
-                    break;
-                default:
-                    System.out.println("Incorrect ...");
-                    System.out.println("Do you wish to continue a game  y/n ?");
-                    response = scanner.nextLine().toUpperCase();
-                    break;
-            }
+
+
+
+
+        System.out.println("Loading game ... ... ... ");
+        saveAndLoad.readProp();
 
 
         System.out.println("New game");
