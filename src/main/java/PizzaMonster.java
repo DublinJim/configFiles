@@ -10,21 +10,18 @@ public class PizzaMonster extends Player {
         randomFactors();
 
     }
+public void battleStats(){
+    System.out.print("PIZZA MONSTER ----------- "+player.name+"\n");
+    System.out.print("--------------          ----------------\n");
+    System.out.print("Strength "+strength+" --------- Strength "+ player.strength+"\n");
 
+}
     @Override
     public String toString() {
         return "PizzaMonster{" +
-                ", strength=" + strength +
+                "strength=" + strength +
                 ", awareness=" + awareness +
                 ", dexterity=" + dexterity +
-                ", name='" + name + '\'' +
-                ", response=" + response +
-                ", torso=" + torso +
-                ", rArm=" + rArm +
-                ", lArm=" + lArm +
-                ", lLeg=" + lLeg +
-                ", rLeg=" + rLeg +
-                ", head=" + head +
                 "} " + super.toString();
     }
 

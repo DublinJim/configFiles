@@ -17,7 +17,8 @@ public class Main {
 
         PizzaMonster pizzaMonster = new PizzaMonster(player);
         pizzaMonster.battlePizzaMonster();
-        System.out.println(pizzaMonster);
+        pizzaMonster.battleStats();
+
     }
 
 
