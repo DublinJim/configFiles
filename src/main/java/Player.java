@@ -67,9 +67,6 @@ public class Player extends Body {
 
         }
 
-
-        // randomFactors();
-
     }
 
 
@@ -83,6 +80,8 @@ public class Player extends Body {
         dexterity += quick;
         System.out.println("New settings after random applied \n" + "Muscle " + muscle + " sharp " + sharp + " dexterity " + quick);
     }
+
+
 
     public int getStrength() {
         return strength;
@@ -117,22 +116,22 @@ public class Player extends Body {
 
     }
 
+
     @Override
     public String toString() {
-        return  "---------------------------"+
-                "\n        PROFILE\n" +
-                "---------------------------\n" +
-                "Name= " + name.toUpperCase() + '\n' +
-                "Strength= " + strength + "\n" +
-                "Awareness= " + awareness + "\n" +
-                "Dexterity= " + dexterity + "\n" +
-                "_____________BODY__________" + "\n" +
-                "Torso= " + torso + "\n" +
-                "Right Arm= " + rArm + "\n" +
-                "Left Arm= " + lArm + "\n" +
-                "Left Leg= " + lLeg + "\n" +
-                "Head= " + head + "\n" +
-                "____________________________";
+        return "Player{" +
+                "strength=" + strength +
+                ", awareness=" + awareness +
+                ", dexterity=" + dexterity +
+                ", name='" + name + '\'' +
+                ", response=" + response +
+                ", torso=" + torso +
+                ", rArm=" + rArm +
+                ", lArm=" + lArm +
+                ", lLeg=" + lLeg +
+                ", rLeg=" + rLeg +
+                ", head=" + head +
+                "} " + super.toString();
     }
 
     public enum typeClass {

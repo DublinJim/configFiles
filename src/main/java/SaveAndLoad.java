@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class SaveAndLoad {
-    public Player player;
+    public static Player player;
     public ConfigMaker configMaker;
 
     public String response;
@@ -76,14 +76,14 @@ public class SaveAndLoad {
 
     }
 
-    public void askForContinue(SaveAndLoad saveAndLoad) throws IOException {
+    public Player askForContinue(SaveAndLoad saveAndLoad) throws IOException {
 
         do {
             System.out.println("Do you wish to continue a game  y/n ?");
             response = scanner.nextLine().toUpperCase();
             System.out.println(response);
 
-        } while ( !response.equals("N")&& !response.equals("Y"));
+        } while (!response.equals("N") && !response.equals("Y"));
 
         if (response.equals("Y")) {
             System.out.println("Loading game ... ... ... ");
@@ -91,12 +91,19 @@ public class SaveAndLoad {
         }
 
         if (response.equals("N")) {
+
+            do {
+                System.out.println("Confirm new game ....Y/N");
+                response = scanner.nextLine().toUpperCase();
+            } while (!response.equals("N") && !response.equals("Y"));
+
             createNewPlayer();
         }
 
 
         System.out.println("game begins");
 
+        return null;
     }
 
     private void createNewPlayer() throws IOException {
@@ -104,10 +111,12 @@ public class SaveAndLoad {
         System.out.println("Enter Player Name...");
         String name = scanner.nextLine();
         System.out.println("Player named " + name);
-        Player player = new Player();
+        player = new Player();
         player.setName(name);
         System.out.println(player);
     }
 
-
+    public  Player getPlayer() {
+        return player;
+    }
 } //end of class
