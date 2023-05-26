@@ -2,9 +2,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class SaveAndLoad {
-    public Player warrior;
+    public Player player;
     public ConfigMaker configMaker;
-    public boolean isValid = false;
+
     public String response;
     public Scanner scanner = new Scanner(System.in);
 
@@ -19,31 +19,31 @@ public class SaveAndLoad {
         playerName = configMaker.readProp("name");
         System.out.println("[[[[[[[ STATS ]]]]]]]]]]");
         System.out.println("| Name returned " + playerName);
-        System.out.println("| strength  " + warrior.strength + "|");
-        System.out.println("| dexterity " + warrior.dexterity + " |");
-        System.out.println("| awareness " + warrior.awareness + " |");
+        System.out.println("| strength  " + player.strength + "|");
+        System.out.println("| dexterity " + player.dexterity + " |");
+        System.out.println("| awareness " + player.awareness + " |");
         System.out.println("_____BODY____________");
-        System.out.println("| right_arm " + warrior.rArm + " |");
-        System.out.println("| left_arm  " + warrior.lArm + " |");
-        System.out.println("| head      " + warrior.head + " |");
-        System.out.println("| torso     " + warrior.torso + " |");
-        System.out.println("| left_leg  " + warrior.lLeg + " |");
+        System.out.println("| right_arm " + player.rArm + " |");
+        System.out.println("| left_arm  " + player.lArm + " |");
+        System.out.println("| head      " + player.head + " |");
+        System.out.println("| torso     " + player.torso + " |");
+        System.out.println("| left_leg  " + player.lLeg + " |");
         System.out.println("______________________");
     }
 
 
     public void setProp() throws IOException {
 
-        configMaker.setProp("name", warrior.getName());
-        configMaker.setProp("strength", String.valueOf(warrior.strength));
-        configMaker.setProp("dexterity", String.valueOf(warrior.dexterity));
-        configMaker.setProp("awareness", String.valueOf(warrior.awareness));
-        configMaker.setProp("right_arm", String.valueOf(warrior.rArm));
-        configMaker.setProp("left_arm", String.valueOf(warrior.lArm));
-        configMaker.setProp("head", String.valueOf(warrior.head));
-        configMaker.setProp("torso", String.valueOf(warrior.torso));
-        configMaker.setProp("left_leg", String.valueOf(warrior.lLeg));
-        configMaker.setProp("right_leg", String.valueOf(warrior.rLeg));
+        configMaker.setProp("name", player.getName());
+        configMaker.setProp("strength", String.valueOf(player.strength));
+        configMaker.setProp("dexterity", String.valueOf(player.dexterity));
+        configMaker.setProp("awareness", String.valueOf(player.awareness));
+        configMaker.setProp("right_arm", String.valueOf(player.rArm));
+        configMaker.setProp("left_arm", String.valueOf(player.lArm));
+        configMaker.setProp("head", String.valueOf(player.head));
+        configMaker.setProp("torso", String.valueOf(player.torso));
+        configMaker.setProp("left_leg", String.valueOf(player.lLeg));
+        configMaker.setProp("right_leg", String.valueOf(player.rLeg));
     }
 
 
@@ -96,7 +96,6 @@ public class SaveAndLoad {
 
 
         System.out.println("game begins");
-
 
     }
 
