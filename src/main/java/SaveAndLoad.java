@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class SaveAndLoad {
@@ -79,29 +78,36 @@ public class SaveAndLoad {
 
     public void askForContinue(SaveAndLoad saveAndLoad) throws IOException {
 
-        System.out.println("Do you wish to continue a game  y/n ?");
-        response = scanner.nextLine().toUpperCase();
-        System.out.println(response);
+        do {
+            System.out.println("Do you wish to continue a game  y/n ?");
+            response = scanner.nextLine().toUpperCase();
+            System.out.println(response);
+
+        } while ( !response.equals("N")&& !response.equals("Y"));
+
+        if (response.equals("Y")) {
+            System.out.println("Loading game ... ... ... ");
+            saveAndLoad.readProp();
+        }
+
+        if (response.equals("N")) {
+            createNewPlayer();
+        }
 
 
+        System.out.println("game begins");
 
 
+    }
 
-
-        System.out.println("Loading game ... ... ... ");
-        saveAndLoad.readProp();
-
-
+    private void createNewPlayer() throws IOException {
         System.out.println("New game");
         System.out.println("Enter Player Name...");
-
         String name = scanner.nextLine();
         System.out.println("Player named " + name);
-
         Player player = new Player();
         player.setName(name);
         System.out.println(player);
-
     }
 
 
