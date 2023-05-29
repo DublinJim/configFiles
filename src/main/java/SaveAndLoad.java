@@ -1,6 +1,8 @@
 import java.io.IOException;
 import java.util.Scanner;
 
+import static java.lang.String.valueOf;
+
 public class SaveAndLoad {
     public static Player player;
     public ConfigMaker configMaker;
@@ -35,48 +37,53 @@ public class SaveAndLoad {
     public void setProp() throws IOException {
 
         configMaker.setProp("name", player.getName());
-        configMaker.setProp("strength", String.valueOf(player.strength));
-        configMaker.setProp("dexterity", String.valueOf(player.dexterity));
-        configMaker.setProp("awareness", String.valueOf(player.awareness));
-        configMaker.setProp("right_arm", String.valueOf(player.rArm));
-        configMaker.setProp("left_arm", String.valueOf(player.lArm));
-        configMaker.setProp("head", String.valueOf(player.head));
-        configMaker.setProp("torso", String.valueOf(player.torso));
-        configMaker.setProp("left_leg", String.valueOf(player.lLeg));
-        configMaker.setProp("right_leg", String.valueOf(player.rLeg));
+        configMaker.setProp("strength", valueOf(player.strength));
+        configMaker.setProp("dexterity", valueOf(player.dexterity));
+        configMaker.setProp("awareness", valueOf(player.awareness));
+        configMaker.setProp("right_arm", valueOf(player.rArm));
+        configMaker.setProp("left_arm", valueOf(player.lArm));
+        configMaker.setProp("head", valueOf(player.head));
+        configMaker.setProp("torso", valueOf(player.torso));
+        configMaker.setProp("left_leg", valueOf(player.lLeg));
+        configMaker.setProp("right_leg", valueOf(player.rLeg));
     }
 
 
     public void readProp() throws IOException {
         System.out.println("After Reading config.ini file ..\n");
         String playerName = configMaker.readProp("name");
-        System.out.println("Name : " + playerName);
+
+
         System.out.println("---------------------------------------");
         int strength = Integer.parseInt(configMaker.readProp("strength"));
-        System.out.println("Strength : " + strength);
-
         int dexterity = Integer.parseInt(configMaker.readProp("dexterity"));
-        System.out.println("Dexterity : " + dexterity);
-
         int awareness = Integer.parseInt(configMaker.readProp("awareness"));
-        System.out.println("Awareness : " + awareness);
 
         System.out.println("__________________BODY_____________________");
         int head = Integer.parseInt(configMaker.readProp("head"));
-        System.out.println("Head damage      : " + head);
-
         int leftArm = Integer.parseInt(configMaker.readProp("left_arm"));
-        System.out.println("Left arm damage  : " + leftArm);
-
         int rightArm = Integer.parseInt(configMaker.readProp("right_arm"));
-        System.out.println("Right arm damage : " + rightArm);
-
         int torso = Integer.parseInt(configMaker.readProp("torso"));
+        int lLeg = Integer.parseInt(configMaker.readProp("left_leg"));
+        int rLeg = Integer.parseInt(configMaker.readProp("right_leg"));
+
+        System.out.println("Name : " + playerName);
+        System.out.println("Strength : " + strength);
+        System.out.println("Dexterity : " + dexterity);
+        System.out.println("Awareness : " + awareness);
+        System.out.println("__________[BODY]__________");
+        System.out.println("Head damage      : " + head);
         System.out.println("Torso damage     : " + torso);
+        System.out.println("Left arm damage  : " + leftArm);
+        System.out.println("Right arm damage : " + rightArm);
+        System.out.println("Left leg damage  : " + lLeg);
+        System.out.println("Right leg damage : " + rLeg);
+        System.out.println("____________________________");
+
 
     }
 
-    public Player askForContinue(SaveAndLoad saveAndLoad) throws IOException {
+    public void askForContinue(SaveAndLoad saveAndLoad) throws IOException {
 
         do {
             System.out.println("Do you wish to continue a game  y/n ?");
@@ -103,7 +110,6 @@ public class SaveAndLoad {
 
         System.out.println("game begins");
 
-        return null;
     }
 
     private void createNewPlayer() throws IOException {
@@ -116,7 +122,7 @@ public class SaveAndLoad {
         System.out.println(player);
     }
 
-    public  Player getPlayer() {
+    public Player getPlayer() {
         return player;
     }
 } //end of class

@@ -11,13 +11,12 @@ public class Main {
         System.out.println("Config demo");
 
         saveAndLoad.askForContinue(saveAndLoad);
-        Player player = saveAndLoad.getPlayer();
-        System.out.println(" NEW PLAYER __________________________ \n" + player);
+
+        Player player= saveAndLoad.getPlayer();
+
         System.out.println("back to main");
 
-        PizzaMonster pizzaMonster = new PizzaMonster(player);
-        pizzaMonster.battlePizzaMonster();
-        pizzaMonster.battleStats();
+
 
     }
 
