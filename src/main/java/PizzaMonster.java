@@ -11,6 +11,7 @@ public class PizzaMonster extends Player {
 
     }
 public void battleStats(){
+        Main.clearScreen();
     System.out.print("PIZZA MONSTER ----------- "+player.name+"\n");
     System.out.print("--------------          ----------------\n");
     System.out.print("Strength "+strength+" --------- Strength "+ player.strength+"\n");

@@ -50,6 +50,7 @@ public class SaveAndLoad {
 
 
     public void readProp() throws IOException {
+Controller.clearScreen();
         System.out.println("After Reading config.ini file ..\n");
         String playerName = configMaker.readProp("name");
         player = new Player();
@@ -60,6 +61,7 @@ public class SaveAndLoad {
         player.strength = Integer.parseInt(configMaker.readProp("strength"));
         player.dexterity = Integer.parseInt(configMaker.readProp("dexterity"));
         player.awareness = Integer.parseInt(configMaker.readProp("awareness"));
+
 
         System.out.println("__________________BODY_____________________");
         player.head = Integer.parseInt(configMaker.readProp("head"));
@@ -84,6 +86,8 @@ public class SaveAndLoad {
 
 
     }
+
+
 
     public void askForContinue(SaveAndLoad saveAndLoad) throws IOException {
 
