@@ -12,63 +12,65 @@ public class Player extends Body {
 
     public Player() throws IOException {
 
-        System.out.println("Please choose a skill set\n ");
-        System.out.println("Warrior : 1");
-        System.out.println("Cleric  : 2");
-        System.out.println("Mage    : 3");
-        System.out.println("Thief   : 4");
-        response = (char) System.in.read();
+
+    }
+public void chooseClass() throws IOException {
+    System.out.println("Please choose a skill set\n ");
+    System.out.println("Warrior : 1");
+    System.out.println("Cleric  : 2");
+    System.out.println("Mage    : 3");
+    System.out.println("Thief   : 4");
+    response = (char) System.in.read();
 
 
-        switch (response) {
-            case '1':
-                System.out.println("Warrior");
-                strength = 100;
-                awareness = 90;
-                dexterity = 50;
+    switch (response) {
+        case '1':
+            System.out.println("Warrior");
+            strength = 100;
+            awareness = 90;
+            dexterity = 50;
 
-                System.out.println("Strength = " + strength);
-                System.out.println("Awareness = " + awareness);
-                System.out.println("Dexterity = " + dexterity);
-                break;
+            System.out.println("Strength = " + strength);
+            System.out.println("Awareness = " + awareness);
+            System.out.println("Dexterity = " + dexterity);
+            break;
 
-            case '2':
-                System.out.println("Cleric");
-                strength = 50;
-                awareness = 70;
-                dexterity = 60;
+        case '2':
+            System.out.println("Cleric");
+            strength = 50;
+            awareness = 70;
+            dexterity = 60;
 
-                System.out.println("Strength =" + strength);
-                System.out.println("Awareness =" + awareness);
-                System.out.println("Dexterity =" + dexterity);
-                break;
-            case '3':
-                System.out.println("Mage");
-                strength = 40;
-                awareness = 80;
-                dexterity = 75;
+            System.out.println("Strength =" + strength);
+            System.out.println("Awareness =" + awareness);
+            System.out.println("Dexterity =" + dexterity);
+            break;
+        case '3':
+            System.out.println("Mage");
+            strength = 40;
+            awareness = 80;
+            dexterity = 75;
 
-                System.out.println("Strength =" + strength);
-                System.out.println("Awareness =" + awareness);
-                System.out.println("Dexterity =" + dexterity);
-                break;
-            case '4':
-                System.out.println("Thief");
-                strength = 60;
-                awareness = 95;
-                dexterity = 90;
+            System.out.println("Strength =" + strength);
+            System.out.println("Awareness =" + awareness);
+            System.out.println("Dexterity =" + dexterity);
+            break;
+        case '4':
+            System.out.println("Thief");
+            strength = 60;
+            awareness = 95;
+            dexterity = 90;
 
-                System.out.println("Strength =" + strength);
-                System.out.println("Awareness =" + awareness);
-                System.out.println("Dexterity =" + dexterity);
-                break;
-            default:
-                System.out.println("invalid input");
-
-        }
+            System.out.println("Strength =" + strength);
+            System.out.println("Awareness =" + awareness);
+            System.out.println("Dexterity =" + dexterity);
+            break;
+        default:
+            System.out.println("invalid input");
 
     }
 
+}
 
     public void randomFactors() {
         Random rand = new Random();

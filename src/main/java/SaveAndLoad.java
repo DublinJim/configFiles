@@ -122,6 +122,7 @@ public class SaveAndLoad {
         player = new Player();
         player.setName(name);
         System.out.println(player);
+        player.chooseClass();
     }
 
     public Player getPlayer() {
