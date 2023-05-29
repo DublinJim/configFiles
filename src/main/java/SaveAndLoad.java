@@ -121,7 +121,7 @@ public class SaveAndLoad {
         System.out.println("Player named " + name);
         player = new Player();
         player.setName(name);
-        System.out.println(player);
+
         player.chooseClass();
     }
 

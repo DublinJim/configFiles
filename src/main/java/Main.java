@@ -14,13 +14,18 @@ public class Main {
 
         Player player= saveAndLoad.getPlayer();
         System.out.println(player.getName());
-
+clearScreen();
         System.out.println("back to main"+ " new player");
-        System.out.println(player);
+
 
 
 
     }
 
+
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
 
 }
