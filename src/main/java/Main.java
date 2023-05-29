@@ -13,8 +13,10 @@ public class Main {
         saveAndLoad.askForContinue(saveAndLoad);
 
         Player player= saveAndLoad.getPlayer();
+        System.out.println(player.getName());
 
-        System.out.println("back to main");
+        System.out.println("back to main"+ " new player");
+        System.out.println(player);
 
 
 

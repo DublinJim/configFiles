@@ -52,32 +52,34 @@ public class SaveAndLoad {
     public void readProp() throws IOException {
         System.out.println("After Reading config.ini file ..\n");
         String playerName = configMaker.readProp("name");
+        player = new Player();
 
-
+        player.setName(playerName);
+        player.strength = Integer.parseInt(configMaker.readProp("strength"));
         System.out.println("---------------------------------------");
-        int strength = Integer.parseInt(configMaker.readProp("strength"));
-        int dexterity = Integer.parseInt(configMaker.readProp("dexterity"));
-        int awareness = Integer.parseInt(configMaker.readProp("awareness"));
+        player.strength = Integer.parseInt(configMaker.readProp("strength"));
+        player.dexterity = Integer.parseInt(configMaker.readProp("dexterity"));
+        player.awareness = Integer.parseInt(configMaker.readProp("awareness"));
 
         System.out.println("__________________BODY_____________________");
-        int head = Integer.parseInt(configMaker.readProp("head"));
-        int leftArm = Integer.parseInt(configMaker.readProp("left_arm"));
-        int rightArm = Integer.parseInt(configMaker.readProp("right_arm"));
-        int torso = Integer.parseInt(configMaker.readProp("torso"));
-        int lLeg = Integer.parseInt(configMaker.readProp("left_leg"));
-        int rLeg = Integer.parseInt(configMaker.readProp("right_leg"));
+        player.head = Integer.parseInt(configMaker.readProp("head"));
+        player.lArm = Integer.parseInt(configMaker.readProp("left_arm"));
+        player.rArm = Integer.parseInt(configMaker.readProp("right_arm"));
+        player.torso = Integer.parseInt(configMaker.readProp("torso"));
+        player.lLeg = Integer.parseInt(configMaker.readProp("left_leg"));
+        player.rLeg = Integer.parseInt(configMaker.readProp("right_leg"));
 
         System.out.println("Name : " + playerName);
-        System.out.println("Strength : " + strength);
-        System.out.println("Dexterity : " + dexterity);
-        System.out.println("Awareness : " + awareness);
+        System.out.println("Strength : " + player.strength);
+        System.out.println("Dexterity : " + player.dexterity);
+        System.out.println("Awareness : " + player.awareness);
         System.out.println("__________[BODY]__________");
-        System.out.println("Head damage      : " + head);
-        System.out.println("Torso damage     : " + torso);
-        System.out.println("Left arm damage  : " + leftArm);
-        System.out.println("Right arm damage : " + rightArm);
-        System.out.println("Left leg damage  : " + lLeg);
-        System.out.println("Right leg damage : " + rLeg);
+        System.out.println("Head damage      : " + player.head);
+        System.out.println("Torso damage     : " + player.torso);
+        System.out.println("Left arm damage  : " + player.lArm);
+        System.out.println("Right arm damage : " + player.rArm);
+        System.out.println("Left leg damage  : " + player.lLeg);
+        System.out.println("Right leg damage : " + player.rLeg);
         System.out.println("____________________________");
 
 
