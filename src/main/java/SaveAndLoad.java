@@ -18,6 +18,7 @@ public class SaveAndLoad {
 
     public void stats() throws IOException {
         String playerName;
+        Controller.clearScreen();
         playerName = configMaker.readProp("name");
         System.out.println("[[[[[[[ STATS ]]]]]]]]]]");
         System.out.println("| Name returned " + playerName);
