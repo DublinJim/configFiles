@@ -4,22 +4,17 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-
-        ConfigMaker configMaker = new ConfigMaker();
-        SaveAndLoad saveAndLoad = new SaveAndLoad(configMaker);
+//load the classes into objects
+        SaveAndLoad saveAndLoad = new SaveAndLoad(new ConfigMaker());
+        Map map = new Map();
 
         System.out.println("Config demo");
-
         saveAndLoad.askForContinue(saveAndLoad);
         Player player = saveAndLoad.getPlayer();
-        System.out.println(player.getName());
 
-        System.out.println("Back to main" + " new player");
-
-
-Map map = new Map();
-
-map.showMap();
+        System.out.println("--Begin the adventure--");
+        map.showMap();
+        map.mapStart();
     }
 
 
@@ -28,18 +23,5 @@ map.showMap();
         System.out.flush();
     }
 
-    public final static void clearConsole() {
-        try {
-            final String os = System.getProperty("os.name");
 
-            if (os.contains("Windows")) {
-                Runtime.getRuntime().exec("cls");
-            } else {
-                Runtime.getRuntime().exec("clear");
-            }
-        } catch (final Exception e) {
-            //  Handle any exceptions.
-        }
-    }
-
-}
+}// end class

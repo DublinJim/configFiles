@@ -121,19 +121,14 @@ public void chooseClass() throws IOException {
 
     @Override
     public String toString() {
-        
+
         return "[" + "Name = :" + name + '\'' +"\n"+
                 "Strength = :" + strength +"\n"+
                 " Awareness = :" + awareness +"\n"+
                 " Dexterity = :" + dexterity +"\n"+
-                " response = :" + response +"\n"+
-                " torso = :" + torso +"\n"+
-                " Right arm damage = :" + rArm +"\n"+
-                " Left arm damage = :" + lArm +"\n"+
-                " Left leg damage = :" + lLeg +"\n"+
-                " Right leg damage = :" + rLeg +"\n"+
-                " Head damage = :" + head +"\n"+
-                "] " ;
+                " response = :" + response +"\n"
+                + super.toString()+"]";
+
     }
 
     public enum typeClass {

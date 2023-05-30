@@ -59,14 +59,14 @@ public class Body {
 
     @Override
     public String toString() {
-        return "Body{" +
-                "torso=" + torso +
-                ", rArm=" + rArm +
-                ", lArm=" + lArm +
-                ", lLeg=" + lLeg +
-                ", rLeg=" + rLeg +
-                ", head=" + head +
-                '}';
+        return "Body{" + " Head damage = :" + head + "\n" +
+                " Torso damage = :" + torso + "\n" +
+                " Right arm damage = :" + rArm + "\n" +
+                " Left arm damage = :" + lArm + "\n" +
+                " Left leg damage = :" + lLeg + "\n" +
+                " Right leg damage = :" + rLeg + "\n" +
+
+                "] ";
     }
 }
 
