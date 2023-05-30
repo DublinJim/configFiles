@@ -14,7 +14,7 @@ public class Main {
 
         System.out.println("--Begin the adventure--");
         map.showMap();
-        map.mapStart();
+        map.playerMove();
     }
 
 

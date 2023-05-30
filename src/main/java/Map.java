@@ -1,28 +1,31 @@
 import java.util.Scanner;
 
 public class Map {
-    public static char[][] matrix = new char[4][4];
+    public static int[][] matrix = new int[4][4];
     public String[] rows = new String[4];
-    public char upDown = 3;
-    public char leftRight = 2;
-    public Scanner scanner;
+    public int upDown = 3;
+    public int leftRight = 2;
+    public Scanner scanner = new Scanner(System.in);
     public String response;
-    public char playerPos;
-    public char potentialPos;
-    public boolean validPathNorth;
-    public boolean validPathSouth;
-    public boolean validPathEast;
-    public boolean validPathWest;
+    public int playerPos;
+    public int potentialPos;
+    public boolean validPathNorth = false;
+    public boolean validPathSouth = false;
+    public boolean validPathEast = false;
+    public boolean validPathWest = false;
 
     public Map() {
         rows[0] = "00100";
         rows[1] = "00100";
         rows[2] = "01000";
-        rows[3] = "00100";
-        playerPos = matrix[upDown][leftRight];
+        rows[3] = "00400";
+        System.out.println("Map starts at "+matrix[0][2]);
+
+
         for (int row = 0; row < matrix.length; row++) {
             for (int col = 0; col < matrix.length; col++) {
-                matrix[row][col] = rows[row].charAt(col);
+
+
             }
         }
     }
@@ -36,46 +39,40 @@ public class Map {
     }
 
     public void mapCheck() {
-        playerPos = matrix[upDown][leftRight];
-
-        char upPos = matrix[upDown + 1][leftRight];
-        char downPos = matrix[upDown - 1][leftRight];
-        char leftPos = matrix[upDown][leftRight - 1];
-        char rightPos = matrix[upDown][leftRight + 1];
 
 
+        if (((upDown ++) >= 0) && (upDown > matrix.length)){
 
-
-        //north
-        if (upPos == '0') {
-            validPathNorth = true;
-            playerPos = upPos;
+            if (upDown==3 && leftRight==1){
+                System.out.println("you have entered a dark hallway");
+            }
         }
-        //south
-        if (downPos == '0') {
-            validPathSouth = true;
-            playerPos = downPos;
-        }
-        //east
-        if (leftPos == '0') {
-            validPathWest = true;
-            playerPos = leftPos;
-        }
-        //west
-        if (rightPos == '0') {
-            playerPos = rightPos;
-            validPathNorth = true;
-        }
+
+
+
+
     }
 
 
-    public void playerPos() {
+    public void playerMove() {
 
-        System.out.println("Direction ?  (N,S,E,W");
+        System.out.println("Direction ?  (N,S,E,W)");
         response = scanner.nextLine().toUpperCase();
         System.out.println(response);
-
-
+        switch (response){
+            case "N":
+                upDown++;
+                break;
+            case "S":
+                upDown--;
+                break;
+            case "E":
+                leftRight++;
+                break;
+            case "W":
+                leftRight--;
+        }
+mapCheck();
     }
 
 
