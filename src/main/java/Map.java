@@ -16,34 +16,42 @@ public class Map {
 
     public Map() {
 
-        System.out.println("Map starts at "+matrix[0][2]);
-
+        System.out.println("Map starts at " + matrix[0][2]);
 
         for (int row = 0; row < matrix.length; row++) {
             for (int col = 0; col < matrix.length; col++) {
-                   matrix[col][row]=1;
+                matrix[col][row] = 1;
             }
         }
-        matrix[3][2]=0;
+        matrix[0][3] = 9;
     }
 
     public void showMap() {
         System.out.println("MAP");
 
+        for (int col = 0; col < matrix.length; col++) {
+            for (int row = 0; row < matrix.length; row++) {
+                System.out.print(matrix[row][col]);
+            }
+            System.out.println("\n");
+        }
 
     }
 
     public void mapCheck() {
 
 
-        if (((upDown ++) >= 0) && (upDown > matrix.length)){
-
-            if (upDown==3 && leftRight==1){
+        if ((upDown >= 0) && (upDown <= matrix.length)) {
+            System.out.println("At "+matrix[0][3]);
+            if (upDown == 0 && leftRight == 3) {
                 System.out.println("you have entered a dark hallway");
+                System.out.println("Exits are : North");
+            }
+            if (upDown == 0 && leftRight == 2) {
+                System.out.println("You are in a room with a chair and a small cupboard");
+                System.out.println("Exits are : North");
             }
         }
-
-
 
 
     }
@@ -54,7 +62,7 @@ public class Map {
         System.out.println("Direction ?  (N,S,E,W)");
         response = scanner.nextLine().toUpperCase();
         System.out.println(response);
-        switch (response){
+        switch (response) {
             case "N":
                 upDown++;
                 break;
@@ -67,7 +75,7 @@ public class Map {
             case "W":
                 leftRight--;
         }
-mapCheck();
+        mapCheck();
     }
 
 
