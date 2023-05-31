@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class Map {
     public static int[][] matrix = new int[4][4];
 
-    public int upDown = 3;
-    public int leftRight = 0;
+    public int row = 3;
+    public int col = 0;
     public Scanner scanner = new Scanner(System.in);
     public String response;
 
@@ -23,7 +23,11 @@ public class Map {
                 matrix[row][col] = 1;
             }
         }
-        matrix[0][3] = 0;
+        matrix[0][3] = 0;//enter
+        matrix[3][0] = 0; //hallway
+        matrix[2][0] = 0; //room 2
+        matrix[1][0] = 0; //kitchen
+        matrix[1][1] = 0; //Server room
     }
 
     public void showMap() {
@@ -41,25 +45,26 @@ public class Map {
 
     public void mapCheck() {
 
-        System.out.println("Row "+ upDown+ " col "+leftRight);
+        System.out.println("Row " + row + " col " + col);
 
-        if ((upDown >= 0) && (upDown <= matrix.length)) {
+        if ((row >= 0) && (row <= matrix.length)) {
 
             System.out.println("You enter the building. The only door is north.... ");
-            if (upDown == 3 && leftRight == 0) {
+
+            if (row == 3 && col == 0) {
                 System.out.println("you have entered a dark hallway");
                 System.out.println("Exits are : North");
             }
-            if (upDown == 2 && leftRight == 0) {
+            if (row == 2 && col == 0) {
                 System.out.println("You are in a room with a chair and a small cupboard(room 2)");
                 System.out.println("Exits are : North and South");
             }
 
-            if (upDown == 1 && leftRight == 0) {
+            if (row == 1 && col == 0) {
                 System.out.println("You are in a kitchen");
                 System.out.println("Exits are : East and South");
             }
-            if (upDown == 1 && leftRight == 1) {
+            if (row == 1 && col == 1) {
                 System.out.println("You are in a Server room with blinking lights");
                 System.out.println("Exits are : West and North ");
             }
@@ -80,20 +85,42 @@ public class Map {
             System.out.println(response);
             switch (response) {
                 case "N":
-                    upDown++;
+                    row++;
+                    valdateGridPosition();
                     break;
                 case "S":
-                    upDown--;
+                    row--;
+                    valdateGridPosition();
                     break;
                 case "E":
-                    leftRight++;
+                    col++;
+                    valdateGridPosition();
                     break;
                 case "W":
-                    leftRight--;
+                    col--;
+                    valdateGridPosition();
                     break;
 
             }
             mapCheck();
+        }
+    }
+
+    private void valdateGridPosition() {
+        if (row > matrix.length) {
+            row--;
+            System.out.println("You cant go that way");
+        } else if (row < 0) {
+            row++;
+            System.out.println("You cant go that way");
+        }
+
+        if (col > matrix.length) {
+            col--;
+            System.out.println("You cant go that way");
+        } else if (col < 0) {
+            col++;
+            System.out.println("You cant go that way");
         }
     }
 
