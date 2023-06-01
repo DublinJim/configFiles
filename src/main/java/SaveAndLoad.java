@@ -51,7 +51,7 @@ public class SaveAndLoad {
 
 
     public void readProp() throws IOException {
-Controller.clearScreen();
+        Controller.clearScreen();
         System.out.println("After Reading config.ini file ..\n");
         String playerName = configMaker.readProp("name");
         player = new Player();
@@ -87,7 +87,6 @@ Controller.clearScreen();
 
 
     }
-
 
 
     public void askForContinue(SaveAndLoad saveAndLoad) throws IOException {

@@ -1,10 +1,11 @@
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Map {
 
 
     public String[][] design = new String[8][8];
-    public int row = 3;
+    public int row = 7;
     public int col = 0;
     public Scanner scanner = new Scanner(System.in);
     public String response;
@@ -25,8 +26,10 @@ public class Map {
             }
         }
 
-        addTheRooms();
 
+        addTheRooms();
+        playerPosition = design[7][0];  // TODO: 6/1/2023 remove
+        System.out.println("Player position " + playerPosition);
     }
 
     private void addTheRooms() {
@@ -44,7 +47,6 @@ public class Map {
             for (int col = 0; col < design.length; col++) {
                 System.out.print(design[row][col] + " ");
             }
-            addTheRooms();
         }
 
     }
@@ -53,58 +55,77 @@ public class Map {
 
         System.out.println("Row " + row + " col " + col);
 
-        if ((row >= 0) && (row <= design.length)) {
 
-            System.out.println("You enter the building. The only door is north.... ");
+        if (Objects.equals(playerPosition, "1")) {
+            System.out.println("you have entered a dark hallway the only exit is north");
+            System.out.println("Exits are : North");
+        }
+        if (Objects.equals(playerPosition, "2")) {
+            System.out.println("You are in a room with a chair and a small cupboard(room 2)");
+            System.out.println("Exits are : North and South");
+        }
 
-            if (row == 3 && col == 0) {
-                System.out.println("you have entered a dark hallway");
-                System.out.println("Exits are : North");
-            }
-            if (row == 2 && col == 0) {
-                System.out.println("You are in a room with a chair and a small cupboard(room 2)");
-                System.out.println("Exits are : North and South");
-            }
-
-            if (row == 1 && col == 0) {
-                System.out.println("You are in a kitchen");
-                System.out.println("Exits are : East and South");
-            }
-            if (row == 1 && col == 1) {
-                System.out.println("You are in a Server room with blinking lights");
-                System.out.println("Exits are : West and North ");
-            }
-
-
-        }//end of func
+        if (Objects.equals(playerPosition, "3")) {
+            System.out.println("You are in a kitchen");
+            System.out.println("Exits are : East and South");
+        }
+        if (Objects.equals(playerPosition, "4")) {
+            System.out.println("You are in a Server room with blinking lights");
+            System.out.println("Exits are : West and North ");
+        }
 
 
     }
 
 
     public void playerMove() {
+        System.out.println("You are in the ADGA building ");
 
         while (alive) {
 
             System.out.println("Direction ?  (N,S,E,W)");
             response = scanner.nextLine().toUpperCase();
             System.out.println(response);
+            int testWater;
             switch (response) {
                 case "N":
-                    row++;
-                    validiateGridPosition();
+                    testWater = row;
+                    testWater++;
+
+                    if (testWater >= 0 && testWater <= 7) {
+                        row = testWater;
+                        playerPosition = design[row][col];
+                    }
+
+                    System.out.println("Player char " + playerPosition);
+                    if (Objects.equals(playerPosition, "x") || (playerPosition == null)) {
+                        System.out.println("You cant go that way");
+                        row++;
+                    }
+                    mapCheck();
                     break;
+
+
                 case "S":
                     row--;
-                    validiateGridPosition();
+                    if (Objects.equals(playerPosition, "x") || (playerPosition == null)) {
+                        System.out.println("You cant go that way");
+                        row++;
+                    }
                     break;
                 case "E":
                     col++;
-                    validiateGridPosition();
+                    if (Objects.equals(playerPosition, "x") || (playerPosition == null)) {
+                        System.out.println("You cant go that way");
+                        col--;
+                    }
                     break;
                 case "W":
                     col--;
-                    validiateGridPosition();
+                    if (Objects.equals(playerPosition, "x") || (playerPosition == null)) {
+                        System.out.println("You cant go that way");
+                        col++;
+                    }
                     break;
 
             }
@@ -115,6 +136,10 @@ public class Map {
     private void validiateGridPosition() {
 
         playerPosition = design[row][col];
+        if (Objects.equals(playerPosition, "x") || (playerPosition == null)) {
+            System.out.println("You cant go that way");
+            row--;
+        }
     }
 
 

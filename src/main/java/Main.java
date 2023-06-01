@@ -14,7 +14,7 @@ public class Main {
 
         map.showMap();
         System.out.println("\n\n--Begin the adventure--");
-        System.out.println("You enter the ADGA building");
+        System.out.println("Go North enter the ADGA building");
         System.out.println();
         System.out.println("What to do..?");
 
