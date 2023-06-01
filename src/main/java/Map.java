@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 public class Map {
-    public static int[][] matrix = new int[4][4];
 
+
+    public String[][] design = new String[8][8];
     public int row = 3;
     public int col = 0;
     public Scanner scanner = new Scanner(System.in);
@@ -16,27 +17,30 @@ public class Map {
 
     public Map() {
 
-        System.out.println("Map starts at " + matrix[0][3]);
+        System.out.println("Map starts at " + design[0][3]);
 
-        for (int row = 0; row < matrix.length; row++) {
-            for (int col = 0; col < matrix.length; col++) {
-                matrix[row][col] = 1;
+        for (int row = 0; row < design.length; row++) {
+
+            for (int col = 0; col < design.length; col++) {
+                design[row][col] = "x";
             }
         }
-        matrix[0][3] = 0;//enter
-        matrix[3][0] = 0; //hallway
-        matrix[2][0] = 0; //room 2
-        matrix[1][0] = 0; //kitchen
-        matrix[1][1] = 0; //Server room
+
+        design[3][0] = "1"; //hallway
+        design[2][0] = "2"; //room 2
+        design[1][0] = "3"; //kitchen
+        design[1][1] = "4"; //Server room
+        System.out.println("done");
     }
 
     public void showMap() {
         System.out.println("MAP");
 
-        for (int col = 0; col < matrix.length; col++) {
+        for (int row = 0; row < design.length; row++) {
             System.out.println();
-            for (int row = 0; row < matrix.length; row++) {
-                System.out.print(matrix[row][col]);
+            for (int col = 0; col <design.length; col++) {
+                design[row][col]="X";
+                System.out.print(design[row][col]);
             }
 
         }
@@ -47,7 +51,7 @@ public class Map {
 
         System.out.println("Row " + row + " col " + col);
 
-        if ((row >= 0) && (row <= matrix.length)) {
+        if ((row >= 0) && (row <= design.length)) {
 
             System.out.println("You enter the building. The only door is north.... ");
 
@@ -86,19 +90,19 @@ public class Map {
             switch (response) {
                 case "N":
                     row++;
-                    valdateGridPosition();
+                    valdiateGridPosition();
                     break;
                 case "S":
                     row--;
-                    valdateGridPosition();
+                    valdiateGridPosition();
                     break;
                 case "E":
                     col++;
-                    valdateGridPosition();
+                    valdiateGridPosition();
                     break;
                 case "W":
                     col--;
-                    valdateGridPosition();
+                    valdiateGridPosition();
                     break;
 
             }
@@ -106,22 +110,8 @@ public class Map {
         }
     }
 
-    private void valdateGridPosition() {
-        if (row > matrix.length) {
-            row--;
-            System.out.println("You cant go that way");
-        } else if (row < 0) {
-            row++;
-            System.out.println("You cant go that way");
-        }
+    private void valdiateGridPosition() {
 
-        if (col > matrix.length) {
-            col--;
-            System.out.println("You cant go that way");
-        } else if (col < 0) {
-            col++;
-            System.out.println("You cant go that way");
-        }
     }
 
 

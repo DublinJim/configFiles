@@ -11,6 +11,7 @@ public class Main {
         System.out.println("Config demo");
         saveAndLoad.askForContinue(saveAndLoad);
         Player player = saveAndLoad.getPlayer();
+
         map.showMap();
         System.out.println("--Begin the adventure--");
         System.out.println("You enter the ADGA building");
