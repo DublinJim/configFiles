@@ -114,9 +114,6 @@ Controller.clearScreen();
             createNewPlayer();
         }
 
-
-        System.out.println("game begins");
-
     }
 
     private void createNewPlayer() throws IOException {

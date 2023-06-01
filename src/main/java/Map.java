@@ -8,7 +8,7 @@ public class Map {
     public int col = 0;
     public Scanner scanner = new Scanner(System.in);
     public String response;
-
+    public String playerPosition;
     public Boolean alive = true;
     public boolean validPathNorth = false;
     public boolean validPathSouth = false;
@@ -17,7 +17,6 @@ public class Map {
 
     public Map() {
 
-        System.out.println("Map starts at " + design[0][3]);
 
         for (int row = 0; row < design.length; row++) {
 
@@ -26,23 +25,26 @@ public class Map {
             }
         }
 
-        design[3][0] = "1"; //hallway
-        design[2][0] = "2"; //room 2
-        design[1][0] = "3"; //kitchen
-        design[1][1] = "4"; //Server room
-        System.out.println("done");
+        addTheRooms();
+
+    }
+
+    private void addTheRooms() {
+        design[7][0] = "1"; //hallway
+        design[6][0] = "2"; //room 2
+        design[5][0] = "3"; //kitchen
+        design[5][1] = "4"; //Server room
     }
 
     public void showMap() {
-        System.out.println("MAP");
+        System.out.println("      MAP      ");
 
         for (int row = 0; row < design.length; row++) {
             System.out.println();
-            for (int col = 0; col <design.length; col++) {
-                design[row][col]="X";
-                System.out.print(design[row][col]);
+            for (int col = 0; col < design.length; col++) {
+                System.out.print(design[row][col] + " ");
             }
-
+            addTheRooms();
         }
 
     }
@@ -90,19 +92,19 @@ public class Map {
             switch (response) {
                 case "N":
                     row++;
-                    valdiateGridPosition();
+                    validiateGridPosition();
                     break;
                 case "S":
                     row--;
-                    valdiateGridPosition();
+                    validiateGridPosition();
                     break;
                 case "E":
                     col++;
-                    valdiateGridPosition();
+                    validiateGridPosition();
                     break;
                 case "W":
                     col--;
-                    valdiateGridPosition();
+                    validiateGridPosition();
                     break;
 
             }
@@ -110,8 +112,9 @@ public class Map {
         }
     }
 
-    private void valdiateGridPosition() {
+    private void validiateGridPosition() {
 
+        playerPosition = design[row][col];
     }
 
 
