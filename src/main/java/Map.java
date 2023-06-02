@@ -11,10 +11,6 @@ public class Map {
     public String response;
     public String playerPosition;
     public Boolean alive = true;
-    public boolean validPathNorth = false;
-    public boolean validPathSouth = false;
-    public boolean validPathEast = false;
-    public boolean validPathWest = false;
 
     public Map() {
 
@@ -90,6 +86,8 @@ public class Map {
             System.out.println("Direction ?  (N,S,E,W)");
             response = scanner.nextLine().toUpperCase();
             System.out.println(response);
+            LineParser lineParser = new LineParser(response);
+            lineParser.processWord(response);
             int testWater;
             switch (response) {
                 case "N":
