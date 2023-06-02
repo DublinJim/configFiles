@@ -37,6 +37,7 @@ public class Map {
         design[6][0] = "2"; //room 2
         design[5][0] = "3"; //kitchen
         design[5][1] = "4"; //Server room
+        design[5][2] = "5"; //Lab
     }
 
     public void showMap() {
@@ -71,10 +72,13 @@ public class Map {
         }
         if (Objects.equals(playerPosition, "4")) {
             System.out.println("You are in a Server room with blinking lights");
-            System.out.println("Exits are : West and North ");
+            System.out.println("Exits are : West and East ");
         }
 
-
+        if (Objects.equals(playerPosition, "5")) {
+            System.out.println("You ar in the Lab");
+            System.out.println("Exits are : West ");
+        }
     }
 
 
@@ -135,7 +139,7 @@ public class Map {
                     break;
 
             }
-            System.out.println("Player char :::::::" + playerPosition);
+            System.out.println("Player char :::::::" + playerPosition); // TODO: 6/2/2023 clear away
             mapCheck();
         }
     }
@@ -152,7 +156,6 @@ public class Map {
             col = testWater;
             playerPosition = design[row][col];
         }
-
     }
 
 
