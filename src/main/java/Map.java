@@ -90,38 +90,44 @@ public class Map {
             switch (response) {
                 case "N":
                     testWater = row;
-                    testWater++;
+                    testWater--;
 
-                    if (testWater >= 0 && testWater <= 7) {
-                        row = testWater;
-                        playerPosition = design[row][col];
-                    }
+                    rowTest(testWater);
 
-                    System.out.println("Player char " + playerPosition);
+
                     if (Objects.equals(playerPosition, "x") || (playerPosition == null)) {
                         System.out.println("You cant go that way");
                         row++;
                     }
-                    mapCheck();
                     break;
 
 
                 case "S":
-                    row--;
+                    testWater = row;
+                    testWater++;
+
+                    rowTest(testWater);
+
                     if (Objects.equals(playerPosition, "x") || (playerPosition == null)) {
                         System.out.println("You cant go that way");
-                        row++;
+                        row--;
                     }
                     break;
                 case "E":
-                    col++;
+                    testWater = col;
+                    testWater++;
+                    colTest(testWater);
+
                     if (Objects.equals(playerPosition, "x") || (playerPosition == null)) {
                         System.out.println("You cant go that way");
                         col--;
                     }
                     break;
                 case "W":
-                    col--;
+                    testWater = col;
+                    testWater--;
+                    colTest(testWater);
+
                     if (Objects.equals(playerPosition, "x") || (playerPosition == null)) {
                         System.out.println("You cant go that way");
                         col++;
@@ -129,19 +135,29 @@ public class Map {
                     break;
 
             }
+            System.out.println("Player char :::::::" + playerPosition);
             mapCheck();
         }
     }
 
-    private void validiateGridPosition() {
-
-        playerPosition = design[row][col];
-        if (Objects.equals(playerPosition, "x") || (playerPosition == null)) {
-            System.out.println("You cant go that way");
-            row--;
+    private void rowTest(int testWater) {
+        if (testWater >= 0 && testWater <= 7) {
+            row = testWater;
+            playerPosition = design[row][col];
         }
+    }
+
+    private void colTest(int testWater) {
+        if (testWater >= 0 && testWater <= 7) {
+            col = testWater;
+            playerPosition = design[row][col];
+        }
+
     }
 
 
 }//end class
+
+
+
 
