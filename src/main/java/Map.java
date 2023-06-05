@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -9,6 +10,8 @@ public class Map {
     public int col = 0;
     public Scanner scanner = new Scanner(System.in);
     public String response;
+    public LineParser lineParser = new LineParser(response);
+
     public String playerPosition;
     public Boolean alive = true;
 
@@ -56,10 +59,15 @@ public class Map {
         if (Objects.equals(playerPosition, "1")) {
             System.out.println("you have entered a dark hallway the only exit is north");
             System.out.println("Exits are : (N)orth");
+            response = scanner.nextLine().toUpperCase();
+
+
         }
         if (Objects.equals(playerPosition, "2")) {
             System.out.println("You are in a room with a chair and a small cupboard(room 2)");
             System.out.println("Exits are : (N)orth and (S)outh");
+            response = scanner.nextLine().toUpperCase();
+            room2();
         }
 
         if (Objects.equals(playerPosition, "3")) {
@@ -76,6 +84,29 @@ public class Map {
             System.out.println("You are in the Lab");
             System.out.println("Exits are : (W)est");
         }
+    }
+
+    private void room2() {
+        String[] words = getStrings();
+        if (Objects.equals(words[0], "OPEN") && Objects.equals(words[1], "CUPBOARD")) {
+            System.out.println("You open the cupboard. ");
+            System.out.println("Inside the cupboard is a small blue keyCard");
+            String blueKeyCard= "a small blue keyCard";
+            inventoryAdd(blueKeyCard);
+
+        }
+
+    }
+
+    private void inventoryAdd(String blueKeyCard) {
+        ArrayList<String> inventory = new ArrayList<>();
+        inventory.add(blueKeyCard);
+    }
+
+    private String[] getStrings() {
+        lineParser.processWord(response);
+        String[] words = response.split(" ");
+        return words;
     }
 
 

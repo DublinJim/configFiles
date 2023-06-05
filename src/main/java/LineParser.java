@@ -14,11 +14,14 @@ String response;
         parserWords.add("TAKE");
     }
 
+public void addWordToArray(String newWords){
+        parserWords.add(newWords);
 
+}
 
     public void processWord(String response) {
         for (int i = 0; i <parserWords.size() ; i++) {
-            System.out.println(parserWords.get(i));
+           // System.out.println(parserWords.get(i));
             String wordIn=parserWords.get(i);
             if (Objects.equals(response, wordIn)) {
                 System.out.println("Match");
