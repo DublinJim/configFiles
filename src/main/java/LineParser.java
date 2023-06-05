@@ -12,6 +12,7 @@ String response;
         parserWords.add("LOOK");
         parserWords.add("UNLOCK");
         parserWords.add("TAKE");
+        parserWords.add("CUPBOARD");
     }
 
 public void addWordToArray(String newWords){
