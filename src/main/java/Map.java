@@ -55,35 +55,37 @@ public class Map {
 
         if (Objects.equals(playerPosition, "1")) {
             System.out.println("you have entered a dark hallway the only exit is north");
-            System.out.println("Exits are : North");
+            System.out.println("Exits are : (N)orth");
         }
         if (Objects.equals(playerPosition, "2")) {
             System.out.println("You are in a room with a chair and a small cupboard(room 2)");
-            System.out.println("Exits are : North and South");
+            System.out.println("Exits are : (N)orth and (S)outh");
         }
 
         if (Objects.equals(playerPosition, "3")) {
             System.out.println("You are in a kitchen");
-            System.out.println("Exits are : East and South");
+            System.out.println("Exits are : (E)ast and (S)outh");
+
         }
         if (Objects.equals(playerPosition, "4")) {
             System.out.println("You are in a Server room with blinking lights");
-            System.out.println("Exits are : West and East ");
+            System.out.println("Exits are : (W)est and (E)ast ");
         }
 
         if (Objects.equals(playerPosition, "5")) {
-            System.out.println("You ar in the Lab");
-            System.out.println("Exits are : West ");
+            System.out.println("You are in the Lab");
+            System.out.println("Exits are : (W)est");
         }
     }
 
 
     public void playerMove() {
-        System.out.println("You are in the ADGA building ");
+        System.out.println("You are in the ADGA building");
+        System.out.println("There is a door to the (N)orth");
 
         while (alive) {
 
-            System.out.println("Direction ?  (N,S,E,W)");
+            System.out.println("What next ? ");
             response = scanner.nextLine().toUpperCase();
             System.out.println(response);
             LineParser lineParser = new LineParser(response);
