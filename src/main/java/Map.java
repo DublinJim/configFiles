@@ -90,14 +90,19 @@ public class Map {
         String[] words = getStrings();
 
 
+        try {
+            if (Objects.equals(words[0], "OPEN") && Objects.equals(words[1], "CUPBOARD")) {
+                System.out.println("You open the cupboard. ");
+                System.out.println("Inside the cupboard is a small blue keyCard");
+                String blueKeyCard= "a small blue keyCard";
+                inventoryAdd(blueKeyCard);
 
-        if (Objects.equals(words[0], "OPEN") && Objects.equals(words[1], "CUPBOARD")) {
-            System.out.println("You open the cupboard. ");
-            System.out.println("Inside the cupboard is a small blue keyCard");
-            String blueKeyCard= "a small blue keyCard";
-            inventoryAdd(blueKeyCard);
+            }
+        } catch (Exception e) {
+            System.out.println("Open what?");
 
         }
+
 
     }
 
