@@ -100,7 +100,7 @@ public class Map {
             }
         } catch (Exception e) {
             System.out.println("Open what?");
-
+            System.out.println("Try again");
         }
 
 
