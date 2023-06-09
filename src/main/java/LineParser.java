@@ -1,11 +1,11 @@
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class LineParser {
 
-public ArrayList<String> parserWords = new ArrayList<>();
+    public ArrayList<String> parserWords = new ArrayList<>();
+    public Inventory inventory = new Inventory();
 
-String response;
+    String response;
 
     public LineParser(String response) {
         this.response = response;
@@ -15,18 +15,28 @@ String response;
         parserWords.add("CUPBOARD");
     }
 
-public void addWordToArray(String newWords){
+    public void addWordToArray(String newWords) {
         parserWords.add(newWords);
 
-}
+    }
 
     public void processWord(String response) {
-        for (int i = 0; i <parserWords.size() ; i++) {
-           // System.out.println(parserWords.get(i));
-            String wordIn=parserWords.get(i);
-            if (Objects.equals(response, wordIn)) {
-                System.out.println("Match");
-            }
+
+
+        switch (response) {
+            case "INV":
+            case "INVENTORY":
+
+                inventory.showInventory();
+                break;
+            case "LOOK":
+            case "L":
+                Map map = new Map();
+                map.mapCheck();
+                System.out.println("LOOKING");
+                break;
         }
     }
+
 }
+

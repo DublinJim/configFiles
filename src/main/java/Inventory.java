@@ -7,21 +7,24 @@ public class Inventory {
     public ArrayList<String> inventory = new ArrayList<>();
 
 
-    public Inventory(String item) {
-        this.item = item;
-    }
+    public Inventory() {
 
-    public void inventoryAdd() {
-        ArrayList<String> inventory = new ArrayList<>();
+        item= "Compass";
         inventory.add(item);
     }
 
-    public void inventoryShow() {
-        System.out.println("You have ......\n");
-        for (int i = 0; i < inventory.size(); i++) {
-            System.out.println(inventory.get(i));
-        }
+    public void inventoryAdd() {
+        inventory.add(item);
+    }
 
+
+
+    public void showInventory() {
+        System.out.println("You have ......\n");
+        int numItems = inventory.size();
+        for (String s : inventory) {
+            System.out.println(numItems + ": " + s);
+        }
     }
 }
 
