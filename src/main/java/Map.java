@@ -15,7 +15,7 @@ public class Map {
     public String playerPosition;
     public Boolean alive = true;
 
-    public Map() {
+    public void createMap() {
 
 
         for (int row = 0; row < design.length; row++) {
@@ -40,6 +40,7 @@ public class Map {
     }
 
     public void showMap() {
+        //displays the map
         System.out.println("      MAP      ");
 
         for (int row = 0; row < design.length; row++) {
@@ -53,13 +54,12 @@ public class Map {
 
     public void mapCheck() {
 
-        System.out.println("Row " + row + " col " + col);
 
+        System.out.println("Row " + row + " col " + col);
 
         if (Objects.equals(playerPosition, "1")) {
             System.out.println("you have entered a dark hallway the only exit is north");
             System.out.println("Exits are : (N)orth");
-            response = scanner.nextLine().toUpperCase();
 
 
         }
@@ -84,6 +84,7 @@ public class Map {
             System.out.println("You are in the Lab");
             System.out.println("Exits are : (W)est");
         }
+
     }
 
     private void room2() {
@@ -94,7 +95,7 @@ public class Map {
             if (Objects.equals(words[0], "OPEN") && Objects.equals(words[1], "CUPBOARD")) {
                 System.out.println("You open the cupboard. ");
                 System.out.println("Inside the cupboard is a small blue keyCard");
-                String blueKeyCard= "A small blue keyCard";
+                String blueKeyCard = "A small blue keyCard";
                 System.out.println("What now >>");
                 getStrings();
                 inventoryAdd(blueKeyCard);
@@ -104,7 +105,6 @@ public class Map {
             System.out.println("Open what?");
             System.out.println("Try again");
         }
-
 
 
     }
@@ -123,15 +123,16 @@ public class Map {
 
 
     public void playerMove() {
-        System.out.println("You are in the ADGA building");
-        System.out.println("There is a door to the (N)orth");
+
+        String redColor = "\u001b[31m";
+        String blueColor = "\u001b[32m";
+        String resetColor = "\u001b[0m";
 
         while (alive) {
 
-            System.out.println("What next ? ");
+            System.out.println(blueColor + "What next ? " + resetColor);
             response = scanner.nextLine().toUpperCase();
             System.out.println(response);
-            LineParser lineParser = new LineParser(response);
             lineParser.processWord(response);
             int testWater;
             switch (response) {
@@ -140,12 +141,8 @@ public class Map {
                     testWater--;
 
                     rowTest(testWater);
+                    mapCheck();
 
-
-                    if (Objects.equals(playerPosition, "x") || (playerPosition == null)) {
-                        System.out.println("You cant go that way");
-                        row++;
-                    }
                     break;
 
 
@@ -155,35 +152,28 @@ public class Map {
 
                     rowTest(testWater);
 
-                    if (Objects.equals(playerPosition, "x") || (playerPosition == null)) {
-                        System.out.println("You cant go that way");
-                        row--;
-                    }
+                    mapCheck();
                     break;
+
                 case "E":
                     testWater = col;
                     testWater++;
                     colTest(testWater);
-
-                    if (Objects.equals(playerPosition, "x") || (playerPosition == null)) {
-                        System.out.println("You cant go that way");
-                        col--;
-                    }
+                    mapCheck();
                     break;
+
                 case "W":
+                    System.out.println("Going westward..");
                     testWater = col;
                     testWater--;
                     colTest(testWater);
+                    mapCheck();
 
-                    if (Objects.equals(playerPosition, "x") || (playerPosition == null)) {
-                        System.out.println("You cant go that way");
-                        col++;
-                    }
                     break;
 
             }
             System.out.println("Player char :::::::" + playerPosition); // TODO: 6/2/2023 clear away
-            mapCheck();
+
         }
     }
 
@@ -191,14 +181,26 @@ public class Map {
         if (testWater >= 0 && testWater <= 7) {
             row = testWater;
             playerPosition = design[row][col];
-        }
+            if (playerPosition == "x") {
+                System.out.println("You cant go that way");
+                row--;
+                playerPosition = design[row][col];
+            }
+        } else
+            System.out.println("You cant go that way");
     }
 
     private void colTest(int testWater) {
         if (testWater >= 0 && testWater <= 7) {
             col = testWater;
             playerPosition = design[row][col];
-        }
+            if (playerPosition == "x") {
+                System.out.println("You cant go that way");
+                col--;
+                playerPosition = design[row][col];
+            }
+        } else
+            System.out.println("You cant go that way");
     }
 
 

@@ -7,20 +7,21 @@ public class Main {
 //load the classes into objects
         SaveAndLoad saveAndLoad = new SaveAndLoad(new ConfigMaker());
         Map map = new Map();
+        Player player = saveAndLoad.getPlayer();
+
+        String redColor = "\u001b[31m";
+        String blueColor = "\u001b[32m";
+        String resetColor = "\u001b[0m";
+
 
         System.out.println("Config demo");
         saveAndLoad.askForContinue(saveAndLoad);
-        Player player = saveAndLoad.getPlayer();
-String redColor ="\u001b[31m";
-String blueColor ="\u001b[32m";
-String resetColor ="\u001b[0m";
-
+        map.createMap();
         map.showMap();
-        System.out.println( redColor+"\n\n--Begin the adventure--"+resetColor);
-        System.out.println("Go North enter the ADGA building");
+        System.out.println(redColor + "\n\n--Begin the adventure--" + resetColor);
+        System.out.println("You enter the ADGA building");
+        System.out.println("you have entered a dark hallway the only exit is (N)orth");
         System.out.println();
-        System.out.println(blueColor+"What to do..?"+resetColor);
-
         map.playerMove();
     }
 
