@@ -4,8 +4,8 @@ public class LineParser {
 
     public ArrayList<String> parserWords = new ArrayList<>();
     public Inventory inventory = new Inventory();
-
-    String response;
+    public Map map;
+   public String response;
 
     public LineParser(String response) {
         this.response = response;
@@ -13,6 +13,7 @@ public class LineParser {
         parserWords.add("UNLOCK");
         parserWords.add("TAKE");
         parserWords.add("CUPBOARD");
+
     }
 
     public void addWordToArray(String newWords) {
@@ -21,7 +22,7 @@ public class LineParser {
     }
 
     public void processWord(String response) {
-
+        map = new Map();
 
         switch (response) {
             case "INV":
@@ -31,10 +32,13 @@ public class LineParser {
                 break;
             case "LOOK":
             case "L":
-                Map map = new Map();
-                map.mapCheck();
+
+           map.mapCheck();
                 System.out.println("LOOKING");
                 break;
+
+
+
         }
     }
 
