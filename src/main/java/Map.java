@@ -95,6 +95,8 @@ public class Map {
                 System.out.println("You open the cupboard. ");
                 System.out.println("Inside the cupboard is a small blue keyCard");
                 String blueKeyCard= "A small blue keyCard";
+                System.out.println("What now >>");
+                getStrings();
                 inventoryAdd(blueKeyCard);
 
             }
@@ -114,7 +116,8 @@ public class Map {
 
     private String[] getStrings() {
         lineParser.processWord(response);
-        String[] words = response.split(" ");
+        String[] words;
+        words = response.split(" ");
         return words;
     }
 

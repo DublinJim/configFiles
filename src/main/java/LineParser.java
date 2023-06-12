@@ -5,7 +5,7 @@ public class LineParser {
     public ArrayList<String> parserWords = new ArrayList<>();
     public Inventory inventory = new Inventory();
     public Map map;
-   public String response;
+    public String response;
 
     public LineParser(String response) {
         this.response = response;
@@ -33,11 +33,13 @@ public class LineParser {
             case "LOOK":
             case "L":
 
-           map.mapCheck();
+                map.mapCheck();
                 System.out.println("LOOKING");
                 break;
 
-
+            case "TAKE":
+            case "T":
+                System.out.println("You take the ");
 
         }
     }
