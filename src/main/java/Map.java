@@ -57,9 +57,9 @@ public class Map {
 
         System.out.println("Row " + row + " col " + col);
 
+
         if (Objects.equals(playerPosition, "1")) {
-            System.out.println("you have entered a dark hallway the only exit is north");
-            System.out.println("Exits are : (N)orth");
+            hallway();
 
 
         }
@@ -85,6 +85,11 @@ public class Map {
             System.out.println("Exits are : (W)est");
         }
 
+    }
+
+    private static void hallway() {
+        System.out.println("you have entered a dark hallway the only exit is north");
+        System.out.println("Exits are : (N)orth");
     }
 
     private void room2() {
