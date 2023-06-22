@@ -19,14 +19,16 @@ public class LineParser {
         switch (response) {
             case "INV":
             case "INVENTORY":
+            case "I":
 
                 inventory.showInventory();
                 break;
             case "LOOK":
             case "L":
 
-                map.mapCheck();
                 System.out.println("LOOKING");
+                map.mapCheck();
+
                 break;
 
             case "TAKE":

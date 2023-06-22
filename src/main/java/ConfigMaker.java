@@ -10,6 +10,7 @@ public class ConfigMaker {
 
         properties.setProperty(title, value);
         properties.store(new FileOutputStream("config.ini"), null);
+        System.out.println("hi");
 
     }
 

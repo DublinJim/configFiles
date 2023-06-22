@@ -20,8 +20,8 @@ public class Main {
         map.showMap();
         System.out.println(redColor + "\n\n--Begin the adventure--" + resetColor);
         System.out.println("You enter the ADGA building");
-        System.out.println("you have entered a dark hallway the only exit is (N)orth");
         System.out.println();
+        System.out.println("A door slams behind you");
         map.playerMove();
     }
 

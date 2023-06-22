@@ -12,7 +12,7 @@ public class Map {
     public String response;
     public LineParser lineParser = new LineParser(response);
 
-    public String playerPosition;
+    public String playerPosition="1";
     public Boolean alive = true;
 
     public void createMap() {
@@ -27,7 +27,7 @@ public class Map {
 
 
         addTheRooms();
-        playerPosition = design[7][0];  // TODO: 6/1/2023 remove
+   //     playerPosition = design[7][0];  // TODO: 6/1/2023 remove
         System.out.println("Player position " + playerPosition);
     }
 
@@ -64,9 +64,7 @@ public class Map {
 
         }
         if (Objects.equals(playerPosition, "2")) {
-            System.out.println("You are in a room with a chair and a small cupboard(room 2)");
-            System.out.println("Exits are : (N)orth and (S)outh");
-            response = scanner.nextLine().toUpperCase();
+
             room2();
         }
 
@@ -90,11 +88,15 @@ public class Map {
     private static void hallway() {
         System.out.println("you have entered a dark hallway the only exit is north");
         System.out.println("Exits are : (N)orth");
+
     }
 
     private void room2() {
         String[] words = getStrings();
-
+        System.out.println("You are in a room with a chair and a small cupboard(room 2)");
+        System.out.println("Exits are : (N)orth and (S)outh");
+        System.out.println("Command ?");
+        response = scanner.nextLine().toUpperCase();
 
         try {
             if (Objects.equals(words[0], "OPEN") && Objects.equals(words[1], "CUPBOARD")) {
@@ -135,13 +137,16 @@ public class Map {
 
         while (alive) {
 
-            System.out.println(blueColor + "What next ? " + resetColor);
+
+            mapCheck();
+            System.out.println(blueColor + "Command ? " + resetColor);
             response = scanner.nextLine().toUpperCase();
-            System.out.println(response);
+         //   System.out.println(response);
             lineParser.processWord(response);
             int testWater;
             switch (response) {
                 case "N":
+                    System.out.println("Going northward..");
                     testWater = row;
                     testWater--;
 
@@ -152,6 +157,7 @@ public class Map {
 
 
                 case "S":
+                    System.out.println("Going southward..");
                     testWater = row;
                     testWater++;
 
@@ -161,6 +167,7 @@ public class Map {
                     break;
 
                 case "E":
+                    System.out.println("Going eastward..");
                     testWater = col;
                     testWater++;
                     colTest(testWater);
@@ -177,7 +184,7 @@ public class Map {
                     break;
 
             }
-            System.out.println("Player char :::::::" + playerPosition); // TODO: 6/2/2023 clear away
+            System.out.println("Player char ::::::: " + playerPosition); // TODO: 6/2/2023 clear away
 
         }
     }
