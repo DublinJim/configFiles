@@ -15,6 +15,10 @@ public class Map {
     public String playerPosition="1";
     public Boolean alive = true;
 
+    public String redColor = "\u001b[31m";
+    public String greenColour = "\u001b[32m";
+    public String resetColor = "\u001b[0m";
+
     public void createMap() {
 
 
@@ -69,20 +73,37 @@ public class Map {
         }
 
         if (Objects.equals(playerPosition, "3")) {
-            System.out.println("You are in a kitchen");
-            System.out.println("Exits are : (E)ast and (S)outh");
+            room3();
 
         }
         if (Objects.equals(playerPosition, "4")) {
-            System.out.println("You are in a Server room with blinking lights");
-            System.out.println("Exits are : (W)est and (E)ast ");
+            room4();
         }
 
         if (Objects.equals(playerPosition, "5")) {
-            System.out.println("You are in the Lab");
-            System.out.println("Exits are : (W)est");
+            room5();
         }
 
+    }
+
+
+
+
+    ////////////////////////rooms////////////////////////////////////
+
+    private static void room5() {
+        System.out.println("You are in the Lab");
+        System.out.println("Exits are : (W)est");
+    }
+
+    private static void room4() {
+        System.out.println("You are in a Server room with blinking lights");
+        System.out.println("Exits are : (W)est and (E)ast ");
+    }
+
+    private static void room3() {
+        System.out.println("You are in a kitchen");
+        System.out.println("Exits are : (E)ast and (S)outh");
     }
 
     private static void hallway() {
@@ -92,11 +113,15 @@ public class Map {
     }
 
     private void room2() {
+
+
         String[] words = getStrings();
         System.out.println("You are in a room with a chair and a small cupboard(room 2)");
         System.out.println("Exits are : (N)orth and (S)outh");
-        System.out.println("Command ?");
-        response = scanner.nextLine().toUpperCase();
+
+
+
+
 
         try {
             if (Objects.equals(words[0], "OPEN") && Objects.equals(words[1], "CUPBOARD")) {
@@ -112,7 +137,9 @@ public class Map {
             System.out.println("Open what?");
             System.out.println("Try again");
         }
-
+if (words[0]=="S"){
+    System.out.println("Going down ------------------><>><<><><><<><>><><><><><><");
+}
 
     }
 
@@ -131,17 +158,16 @@ public class Map {
 
     public void playerMove() {
 
-        String redColor = "\u001b[31m";
-        String blueColor = "\u001b[32m";
-        String resetColor = "\u001b[0m";
+
 
         while (alive) {
 
 
             mapCheck();
-            System.out.println(blueColor + "Command ? " + resetColor);
+            System.out.println(greenColour + "Command ? " + resetColor);
             response = scanner.nextLine().toUpperCase();
-         //   System.out.println(response);
+            System.out.println(response);
+
             lineParser.processWord(response);
             int testWater;
             switch (response) {
@@ -193,7 +219,7 @@ public class Map {
         if (testWater >= 0 && testWater <= 7) {
             row = testWater;
             playerPosition = design[row][col];
-            if (playerPosition == "x") {
+            if (Objects.equals(playerPosition, "x")) {
                 System.out.println("You cant go that way");
                 row--;
                 playerPosition = design[row][col];
@@ -206,7 +232,7 @@ public class Map {
         if (testWater >= 0 && testWater <= 7) {
             col = testWater;
             playerPosition = design[row][col];
-            if (playerPosition == "x") {
+            if (Objects.equals(playerPosition, "x")) {
                 System.out.println("You cant go that way");
                 col--;
                 playerPosition = design[row][col];
