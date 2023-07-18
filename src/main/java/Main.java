@@ -15,6 +15,27 @@ public class Main {
 
 
         System.out.println("Config demo");
+
+        System.out.println("\n" +
+                "                                                  \n" +
+                "                 ,----..                     ,--. \n" +
+                "    ,---,       /   /   \\  ,-.----.      ,--/  /| \n" +
+                "  .'  .' `\\    /   .     : \\    /  \\  ,---,': / ' \n" +
+                ",---.'     \\  .   /   ;.  \\;   :    \\ :   : '/ /  \n" +
+                "|   |  .`\\  |.   ;   /  ` ;|   | .\\ : |   '   ,   \n" +
+                ":   : |  '  |;   |  ; \\ ; |.   : |: | '   |  /    \n" +
+                "|   ' '  ;  :|   :  | ; | '|   |  \\ : |   ;  ;    \n" +
+                "'   | ;  .  |.   |  ' ' ' :|   : .  / :   '   \\   \n" +
+                "|   | :  |  ''   ;  \\; /  |;   | |  \\ |   |    '  \n" +
+                "'   : | /  ;  \\   \\  ',  / |   | ;\\  \\'   : |.  \\ \n" +
+                "|   | '` ,/    ;   :    /  :   ' | \\.'|   | '_\\.' \n" +
+                ";   :  .'       \\   \\ .'   :   : :-'  '   : |     \n" +
+                "|   ,.'          `---`     |   |.'    ;   |,'     \n" +
+                "'---'                      `---'      '---'       \n" +
+                "                                                  \n  \n  ");
+
+        System.out.println("An ADGA adventure");
+        System.out.println("By J. Keogh\n\n");
         saveAndLoad.askForContinue(saveAndLoad);
         map.createMap();
         map.showMap();

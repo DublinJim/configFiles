@@ -55,7 +55,6 @@ public class Map {
 
 
         addTheRooms();
-        //     playerPosition = design[7][0];  // TODO: 6/1/2023 remove
         System.out.println("Player position " + playerPosition);
     }
 
@@ -216,12 +215,14 @@ public class Map {
 
             if (Objects.equals(playerPosition, "x")) {
                 System.out.println(redColor + "You cant go that way" + resetColor);
+
                 if (Objects.equals(response, "N")) {
                     row++;
-                } else row--;
+                }
             }
         } else {
             System.out.println(redColor + "You cant go that way" + resetColor);
+            row--;
         }
         playerPosition = design[row][col];
     }
@@ -231,13 +232,11 @@ public class Map {
             col = testWater;
             playerPosition = design[row][col];
             if (Objects.equals(playerPosition, "x")) {
-                System.out.println("You cant go that way");
+                System.out.println(redColor + "You cant go that way" + resetColor);
                 col--;
                 playerPosition = design[row][col];
-
-
             }
-        } else System.out.println("You cant go that way");
+        } else System.out.println(redColor + "You cant go that way" + resetColor);
         col--;
     }
 
