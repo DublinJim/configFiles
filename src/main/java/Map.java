@@ -213,6 +213,7 @@ public class Map {
             row = testWater;
             playerPosition = design[row][col];
 
+
             if (Objects.equals(playerPosition, "x")) {
                 System.out.println(redColor + "You cant go that way" + resetColor);
 
